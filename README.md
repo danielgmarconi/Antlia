@@ -1,6 +1,6 @@
 # Desafio técnico de desenvolvedor senior .NET Full Stack para empresa Antlia
-"Este código é um desafio técnico realizado para a Eclipseworks, referente à vaga de Desenvolvedor .NET Sênior.
-[Antlia](https://Antlia.com.br/)
+"Este código é um desafio técnico realizado para a [Antlia](https://Antlia.com.br/), referente à vaga de Desenvolvedor .NET Sênior.
+
 ## Descrição técnica
 - C#
 - Arquitetura limpa (Clean Architecture)
