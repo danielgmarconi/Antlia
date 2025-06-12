@@ -1,0 +1,100 @@
+  <div class="container">
+    <form>
+      <fieldset class="border p-4 rounded">
+        <legend class="w-auto px-1">Pesquisar produto</legend>
+        <div class="row mb-3">
+          <div class="col-md-2">
+            <label class="form-label">ID</label>
+            <input type="number" class="form-control"  placeholder="Digite seu ID" [(ngModel)]="pesquisaId" [ngModelOptions]="{standalone: true}" (input)="onNumberInputMaxlength($event,8)">
+          </div>
+          <div class="col-md-7">
+            <label class="form-label">Descição</label>
+            <input type="text" class="form-control" placeholder="Digite seu Descrção" [(ngModel)]="pesquisaDescricao" [ngModelOptions]="{standalone: true}" maxlength="30">
+          </div>
+          <div class="col-md-2">
+            <label class="form-label">Status</label>
+            <select id="estado" class="form-select"  [(ngModel)]="pesquisaStatus" [ngModelOptions]="{standalone: true}">
+              <option selected value="">Selecione</option>
+              <option value="A">Ativo</option>
+              <option value="I">Inativo</option>
+            </select>
+          </div>
+        </div>
+        <div class="text-end">
+          <button type="submit" class="btn btn-primary" (click)="pesquisar()">Pesquisar</button>
+          &nbsp;&nbsp;&nbsp;
+          <button type="submit" class="btn btn-success" (click)="novo();">Adicionar</button>
+        </div>
+      </fieldset>
+    </form>
+    <br/>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Descrição</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          @if(produtos.length > 0)
+          {
+            @for(produto of produtos; track $index)
+            {
+               <tr>
+                <td>{{produto.id}}</td>
+                <td>{{produto.descricao}}</td>
+                <td>{{produto.status == 'A' ? 'Ativo': 'Inativo'}}</td>
+                <td>
+                  <button class="btn btn-success btn-sm me-1" (click)="aditar(produto)">
+                    <i class="bi bi-pencil-fill"></i>
+                  </button>
+                  <button class="btn btn-danger btn-sm me-1" (click)="removeItem(produto.id??0)">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            }
+          }
+        </tbody>
+      </table>
+  </div>
+</div>
+<div class="modal fade" id="CadastroModal" tabindex="-1" role="dialog" data-bs-backdrop="static" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Cadastro de Produto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label class="form-label">ID</label>
+            <input type="text" class="form-control"  placeholder="Digite seu ID" [(ngModel)]="cadProduto.id" [ngModelOptions]="{standalone: true}" disabled="">
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Status</label>
+            <select id="estado" class="form-select"  [(ngModel)]="cadProduto.status" [ngModelOptions]="{standalone: true}">
+              <option selected value="">Selecione</option>
+              <option value="A">Ativo</option>
+              <option value="I">Inativo</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-9">
+            <label class="form-label">Descrição</label>
+            <input type="text" class="form-control" placeholder="Digite seu Descrição" [(ngModel)]="cadProduto.descricao" [ngModelOptions]="{standalone: true}" maxlength="30">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="salvar()">Salvar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal('CadastroModal')">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

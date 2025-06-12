@@ -1,0 +1,655 @@
+{
+	"info": {
+		"_postman_id": "4f6f1adc-0813-4569-a639-80aaa5d8850d",
+		"name": "Antlia",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38955914"
+	},
+	"item": [
+		{
+			"name": "Produto",
+			"item": [
+				{
+					"name": "GetByModel",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7191/api/Produto?id=2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7191",
+							"path": [
+								"api",
+								"Produto"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7191/api/Produto/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7191",
+							"path": [
+								"api",
+								"Produto",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"descricao\": \"Produto Teste\",\r\n  \"status\": \"A\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7191/api/Produto",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7191",
+							"path": [
+								"api",
+								"Produto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Id\": 3,\r\n  \"descricao\": \"Produto Teste X1\",\r\n  \"status\": \"A\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7191/api/Produto",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7191",
+							"path": [
+								"api",
+								"Produto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7191/api/Produto/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7191",
+							"path": [
+								"api",
+								"Produto",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ProdutoCosifCosif",
+			"item": [
+				{
+					"name": "GetByModel",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7191/api/ProdutoCosifCosif?id=2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7191",
+							"path": [
+								"api",
+								"ProdutoCosifCosif"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7191/api/ProdutoCosifCosif/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7191",
+							"path": [
+								"api",
+								"ProdutoCosifCosif",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"produtoId\": 3,\r\n  \"codigo\": \"AA\",\r\n  \"classificacao\": null,\r\n  \"status\": \"A\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7191/api/ProdutoCosifCosif",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7191",
+							"path": [
+								"api",
+								"ProdutoCosifCosif"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Id\": 3,\r\n  \"descricao\": \"Produto Teste X1\",\r\n  \"status\": \"A\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7191/api/ProdutoCosifCosif",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7191",
+							"path": [
+								"api",
+								"ProdutoCosifCosif"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7191/api/ProdutoCosifCosif/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7191",
+							"path": [
+								"api",
+								"ProdutoCosifCosif",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByModel",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7191/api/ProdutoCosifCosif?id=2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7191",
+							"path": [
+								"api",
+								"ProdutoCosifCosif"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7191/api/ProdutoCosifCosif/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7191",
+							"path": [
+								"api",
+								"ProdutoCosifCosif",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"produtoId\": 3,\r\n  \"codigo\": \"AA\",\r\n  \"classificacao\": null,\r\n  \"status\": \"A\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7191/api/ProdutoCosifCosif",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7191",
+							"path": [
+								"api",
+								"ProdutoCosifCosif"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Id\": 3,\r\n  \"descricao\": \"Produto Teste X1\",\r\n  \"status\": \"A\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7191/api/ProdutoCosifCosif",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7191",
+							"path": [
+								"api",
+								"ProdutoCosifCosif"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7191/api/ProdutoCosifCosif/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7191",
+							"path": [
+								"api",
+								"ProdutoCosifCosif",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MovimentoManual",
+			"item": [
+				{
+					"name": "GetByModel",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7191/api/MovimentoManual?id=2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7191",
+							"path": [
+								"api",
+								"MovimentoManual"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7191/api/MovimentoManual/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7191",
+							"path": [
+								"api",
+								"MovimentoManual",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"produtoId\": 3,\r\n  \"produtoCosifId\": 3,\r\n  \"mes\": 1,\r\n  \"ano\": 2025,\r\n  \"numeroLancamento\": 11950,\r\n  \"valor\": 1,\r\n  \"descricao\": \"teste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7191/api/MovimentoManual",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7191",
+							"path": [
+								"api",
+								"MovimentoManual"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Id\": 3,\r\n  \"descricao\": \"Produto Teste X1\",\r\n  \"status\": \"A\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7191/api/MovimentoManual",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7191",
+							"path": [
+								"api",
+								"MovimentoManual"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7191/api/MovimentoManual/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7191",
+							"path": [
+								"api",
+								"MovimentoManual",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByModel",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7191/api/MovimentoManual?id=2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7191",
+							"path": [
+								"api",
+								"MovimentoManual"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7191/api/MovimentoManual/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7191",
+							"path": [
+								"api",
+								"MovimentoManual",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"produtoId\": 3,\r\n  \"produtoCosifId\": 3,\r\n  \"mes\": 1,\r\n  \"ano\": 2025,\r\n  \"numeroLancamento\": 11950,\r\n  \"valor\": 1,\r\n  \"descricao\": \"teste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7191/api/MovimentoManual",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7191",
+							"path": [
+								"api",
+								"MovimentoManual"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Id\": 3,\r\n  \"descricao\": \"Produto Teste X1\",\r\n  \"status\": \"A\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7191/api/MovimentoManual",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7191",
+							"path": [
+								"api",
+								"MovimentoManual"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7191/api/MovimentoManual/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7191",
+							"path": [
+								"api",
+								"MovimentoManual",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

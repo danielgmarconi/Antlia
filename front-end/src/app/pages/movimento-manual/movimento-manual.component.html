@@ -1,0 +1,196 @@
+<div class="container">
+  <form>
+    <fieldset class="border p-4 rounded">
+      <legend class="w-auto px-1">Pesquisar Movimento Manual</legend>
+        <div class="row mb-3">
+          <div class="col-md-2">
+            <label class="form-label">ID</label>
+            <input type="number" class="form-control" placeholder="Digite seu ID" [(ngModel)]="pesquisaMovimentoManual.id" [ngModelOptions]="{standalone: true}" >
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Produto</label>
+            <select id="Produto" class="form-select" (change)="onChangeProdutoPesquisa($event)" [(ngModel)]="pesquisaMovimentoManual.produtoId" [ngModelOptions]="{standalone: true}" >
+              <option selected value="0">Selecione</option>
+              @if(produtos.length > 0)
+              {
+                @for(produto of produtos; track $index)
+                {
+                  <option value="{{produto.id}}">{{produto.descricao}}</option>
+                }
+              }
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Produto Cosif</label>
+            <select id="Produto" class="form-select" [(ngModel)]="pesquisaMovimentoManual.produtoCosifId" [ngModelOptions]="{standalone: true}" >
+              <option selected value="0">Selecione</option>
+              @if(pesquisaProdutoCosifs.length > 0)
+              {
+                @for(pesquisaProdutoCosif of pesquisaProdutoCosifs; track $index)
+                {
+                  <option value="{{pesquisaProdutoCosif.id}}">{{pesquisaProdutoCosif.codigo}}</option>
+                }
+              }
+            </select>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label class="form-label">Mês</label>
+            <select id="Produto" class="form-select" [(ngModel)]="pesquisaMovimentoManual.mes" [ngModelOptions]="{standalone: true}" >
+              <option selected value="0">Selecione</option>
+              <option selected value="1">Janeiro</option>
+              <option selected value="2">Fevereiro</option>
+              <option selected value="3">Março</option>
+              <option selected value="4">Abril</option>
+              <option selected value="5">Maio</option>
+              <option selected value="6">Junho</option>
+              <option selected value="7">Julho</option>
+              <option selected value="8">Agosto</option>
+              <option selected value="9">Setembro</option>
+              <option selected value="10">Outubro</option>
+              <option selected value="11">Novembro</option>
+              <option selected value="12">Dezembro</option>
+            </select>
+          </div>
+          <div class="col-md-2">
+            <label class="form-label">Ano</label>
+            <input type="number" class="form-control" placeholder="Digite seu Ano" [(ngModel)]="pesquisaMovimentoManual.ano" [ngModelOptions]="{standalone: true}" >
+          </div>
+        </div>
+        <div class="text-end">
+          <button type="submit" class="btn btn-primary" (click)="pesquisar()">Pesquisar</button>
+          &nbsp;&nbsp;&nbsp;
+          <button type="submit" class="btn btn-success" (click)="novo();">Adicionar</button>
+        </div>
+    </fieldset>
+  </form>
+    <br/>
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Produto</th>
+            <th>Produto Cosif</th>
+            <th>Mes</th>
+            <th>Ano</th>
+            <th>N. Lançamento</th>
+            <th>Valor</th>
+            <th>Descrição</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          @if(movimentoManuals.length > 0)
+          {
+            @for(movimentoManual of movimentoManuals; track $index)
+            {
+               <tr>
+                <td>{{movimentoManual.id}}</td>
+                <td>{{movimentoManual.produto?.descricao}}</td>
+                <td>{{movimentoManual.produtoCosif?.codigo}}</td>
+                <td>{{movimentoManual.mes}}</td>
+                <td>{{movimentoManual.ano}}</td>
+                <td>{{movimentoManual.numeroLancamento}}</td>
+                <td>{{movimentoManual.valor}}</td>
+                <td>{{movimentoManual.descricao}}</td>
+                <td>
+                  <button class="btn btn-success btn-sm me-1" (click)="aditar(movimentoManual)">
+                    <i class="bi bi-pencil-fill"></i>
+                  </button>
+                  <button class="btn btn-danger btn-sm me-1" (click)="removeItem(movimentoManual.id??0)">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            }
+          }
+        </tbody>
+      </table>
+</div>
+<div class="modal fade" id="CadastroModal" tabindex="-1" role="dialog" data-bs-backdrop="static" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Cadastro de Movimento Manual</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label class="form-label">ID</label>
+            <input type="text" class="form-control"  placeholder="Digite seu ID" [(ngModel)]="cadMovimentoManual.id" [ngModelOptions]="{standalone: true}" disabled="">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label class="form-label">Produto</label>
+            <select id="Produto" class="form-select" [(ngModel)]="cadMovimentoManual.produtoId" (change)="onChangeProdutoCad($event)"[ngModelOptions]="{standalone: true}">
+              <option selected value="0">Selecione</option>
+              @if(produtos.length > 0)
+              {
+                @for(produto of produtos; track $index)
+                {
+                  <option value="{{produto.id}}">{{produto.descricao}}</option>
+                }
+              }
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Movimento Manual</label>
+            <select id="Produto" class="form-select" [(ngModel)]="cadMovimentoManual.produtoCosifId" [ngModelOptions]="{standalone: true}" >
+              <option selected value="0">Selecione</option>
+              @if(cadProdutoCosifs.length > 0)
+              {
+                @for(cadProdutoCosif of cadProdutoCosifs; track $index)
+                {
+                  <option value="{{cadProdutoCosif.id}}">{{cadProdutoCosif.codigo}}</option>
+                }
+              }
+            </select>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label class="form-label">Mês</label>
+            <select id="Produto" class="form-select" [(ngModel)]="cadMovimentoManual.mes" [ngModelOptions]="{standalone: true}" >
+              <option selected value="0">Selecione</option>
+              <option selected value="1">Janeiro</option>
+              <option selected value="2">Fevereiro</option>
+              <option selected value="3">Março</option>
+              <option selected value="4">Abril</option>
+              <option selected value="5">Maio</option>
+              <option selected value="6">Junho</option>
+              <option selected value="7">Julho</option>
+              <option selected value="8">Agosto</option>
+              <option selected value="9">Setembro</option>
+              <option selected value="10">Outubro</option>
+              <option selected value="11">Novembro</option>
+              <option selected value="12">Dezembro</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Ano</label>
+            <input type="number" class="form-control" placeholder="Digite seu Ano" [(ngModel)]="cadMovimentoManual.ano" [ngModelOptions]="{standalone: true}" >
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label class="form-label">Valor</label>
+            <input type="number" class="form-control" placeholder="Digite o Valor"  step="0.01" min="0"[(ngModel)]="cadMovimentoManual.valor" [ngModelOptions]="{standalone: true}" >
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Descrição</label>
+            <input type="text" class="form-control" placeholder="Digite seu Descrição" [(ngModel)]="cadMovimentoManual.descricao" [ngModelOptions]="{standalone: true}" maxlength="30">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="salvar()">Salvar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal('CadastroModal')">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

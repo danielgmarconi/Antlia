@@ -1,0 +1,44 @@
+:host{
+  .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.6); /* Borda inicial branca/translúcida */
+  }
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
+  .navbar-toggler:focus{
+    border-color: #fff;
+    box-shadow: none;
+  }
+  .navbar a {
+    font-size: 20px;
+    font-weight: bold;
+    color: #dddddd;
+    i {
+      color: #dddddd;
+    }
+  }
+  .navbar a:hover {
+    color: #ffffff;
+    i {
+      color: #ffffff;
+    }
+  }
+    /* Ajuste para a barra de busca em telas menores */
+  @media (max-width: 768px) {
+    .form-control {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+  @media (max-width: 576px) {
+    .nav-link .badge {
+      font-size: 0.65rem; /* Reduz o tamanho da fonte */
+      min-width: 1.2em; /* Reduz a largura mínima */
+      height: 1.2em; /* Reduz a altura */
+    }
+
+    .nav-link i {
+      font-size: 1.3rem; /* Reduz o tamanho do ícone */
+    }
+  }
+}

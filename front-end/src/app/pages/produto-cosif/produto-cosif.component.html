@@ -1,0 +1,148 @@
+<div class="container">
+  <form>
+    <fieldset class="border p-4 rounded">
+      <legend class="w-auto px-1">Pesquisar Produto Cosif</legend>
+        <div class="row mb-3">
+          <div class="col-md-2">
+            <label class="form-label">ID</label>
+            <input type="number" class="form-control" placeholder="Digite seu ID" [(ngModel)]="pesquisaProdutoCosif.id" [ngModelOptions]="{standalone: true}" >
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Produto</label>
+            <select id="Produto" class="form-select" [(ngModel)]="pesquisaProdutoCosif.produtoId" [ngModelOptions]="{standalone: true}" >
+              <option selected value="0">Selecione</option>
+              @if(produtos.length > 0)
+              {
+                @for(produto of produtos; track $index)
+                {
+                  <option value="{{produto.id}}">{{produto.descricao}}</option>
+                }
+              }
+            </select>
+          </div>
+          <div class="col-md-2">
+            <label class="form-label">Classificação</label>
+            <select id="Classificacao" class="form-select" [(ngModel)]="pesquisaProdutoCosif.classificacao" [ngModelOptions]="{standalone: true}" >
+              <option selected value="">Selecione</option>
+              <option value="Normal">Normal</option>
+              <option value="MTM">MTM</option>
+            </select>
+          </div>
+          <div class="col-md-2">
+            <label class="form-label">Status</label>
+            <select id="Status" class="form-select" [(ngModel)]="pesquisaProdutoCosif.status" [ngModelOptions]="{standalone: true}" >
+              <option selected value="">Selecione</option>
+              <option value="A">Ativo</option>
+              <option value="I">Inativo</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Codigo</label>
+            <input type="text" class="form-control" placeholder="Digite seu Codigo" [(ngModel)]="pesquisaProdutoCosif.codigo" [ngModelOptions]="{standalone: true}" maxlength="11" >
+          </div>
+        </div>
+        <div class="text-end">
+          <button type="submit" class="btn btn-primary" (click)="pesquisar()">Pesquisar</button>
+          &nbsp;&nbsp;&nbsp;
+          <button type="submit" class="btn btn-success" (click)="novo();">Adicionar</button>
+        </div>
+    </fieldset>
+  </form>
+    <br/>
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Produto</th>
+            <th>Classificação</th>
+            <th>Codigo</th>
+            <th>Classificacao</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          @if(produtoCosifs.length > 0)
+          {
+            @for(produtoCosif of produtoCosifs; track $index)
+            {
+               <tr>
+                <td>{{produtoCosif.id}}</td>
+                <td>{{produtoCosif.produto?.descricao}}</td>
+                <td>{{produtoCosif.classificacao}}</td>
+                <td>{{produtoCosif.codigo}}</td>
+                <td>{{produtoCosif.status == 'A' ? 'Ativo': 'Inativo'}}</td>
+                <td>
+                  <button class="btn btn-success btn-sm me-1" (click)="aditar(produtoCosif)">
+                    <i class="bi bi-pencil-fill"></i>
+                  </button>
+                  <button class="btn btn-danger btn-sm me-1" (click)="removeItem(produtoCosif.id??0)">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            }
+          }
+        </tbody>
+      </table>
+</div>
+<div class="modal fade" id="CadastroModal" tabindex="-1" role="dialog" data-bs-backdrop="static" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Cadastro de Produto Cosif</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label class="form-label">ID</label>
+            <input type="text" class="form-control"  placeholder="Digite seu ID" [(ngModel)]="cadProdutoCosif.id" [ngModelOptions]="{standalone: true}" disabled="">
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Status</label>
+            <select id="estado" class="form-select"  [(ngModel)]="cadProdutoCosif.status" [ngModelOptions]="{standalone: true}">
+              <option selected value="">Selecione</option>
+              <option value="A">Ativo</option>
+              <option value="I">Inativo</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label class="form-label">Produto</label>
+            <select id="Produto" class="form-select" [(ngModel)]="cadProdutoCosif.produtoId" [ngModelOptions]="{standalone: true}">
+              <option selected value="">Selecione</option>
+              @if(produtos.length > 0)
+              {
+                @for(produto of produtos; track $index)
+                {
+                  <option value="{{produto.id}}">{{produto.descricao}}</option>
+                }
+              }
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Classificação</label>
+            <select id="Classificacao" class="form-select" [(ngModel)]="cadProdutoCosif.classificacao" [ngModelOptions]="{standalone: true}">
+              <option selected value="">Selecione</option>
+              <option value="Normal">Normal</option>
+              <option value="MTM">MTM</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Codigo</label>
+            <input type="text" class="form-control" placeholder="Digite seu Codigo" [(ngModel)]="cadProdutoCosif.codigo" [ngModelOptions]="{standalone: true}" maxlength="11">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="salvar()">Salvar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal('CadastroModal')">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
