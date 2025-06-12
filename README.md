@@ -12,6 +12,7 @@
 - Angular 19
 ## Observações sobre projeto
 A aplicação tem como objetivo area finaceira.
+
 O framework [DataAccessLayer.SqlServerAdapter](https://www.nuget.org/packages/DataAccessLayer.SqlServerAdapter) foi uma criação pessoal para facilitar a contrução de chamadas de banco de dados, é um framework de codigo aberto esta no [GIT](https://github.com/danielgmarconi/DataAccessLayer)
 
 ## Detalhamaneto das camadas
