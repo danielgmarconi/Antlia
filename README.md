@@ -1,5 +1,5 @@
 # Desafio técnico de desenvolvedor senior .NET Full Stack para empresa Antlia
-"Este código é um desafio técnico realizado para a [Antlia](https://Antlia.com.br/), referente à vaga de Desenvolvedor .NET Sênior.
+"Este código é um desafio técnico realizado para a [Antlia](https://Antlia.com.br/), referente à vaga de Desenvolvedor .NET Sênior Full Stack.
 
 ## Descrição técnica
 - C#
